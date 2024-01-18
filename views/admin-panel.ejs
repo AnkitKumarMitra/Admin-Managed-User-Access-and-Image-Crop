@@ -1,0 +1,58 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="container-fluid p-5">
+        <button type="button" class="btn btn-outline-primary montserrat-600">View</button>
+
+        <table class="table table-bordered mt-5">
+            <tr class="row d-none d-sm-flex m-0">
+                <th class="col-md-3 col-6 text-center d-flex justify-content-center align-items-center">User ID</th>
+                <th class="col-md-3 col-6 text-center d-flex justify-content-center align-items-center">Name</th>
+                <th class="col-md-3 col-6 text-center d-flex justify-content-center align-items-center">Photo</th>
+                <th class="col-md-3 col-6 text-center d-flex justify-content-center align-items-center">Action</th>
+            </tr>
+            <% if(userDetails1) {%>
+            <tr class="row m-0">
+                <td class="col-md-3 col-6 text-center d-flex justify-content-center align-items-center">
+                    <%= userDetails1.userId %>
+                </td>
+                <td class="col-md-3 col-6 text-center d-flex justify-content-center align-items-center">
+                    <%= userDetails1.name %>
+                </td>
+                <td class="col-md-3 col-6 text-center d-flex justify-content-center align-items-center">
+                    <img src="profiles/<%= userDetails1.imgSrc %>" class="profile-img">
+                </td>
+                <td class="col-md-3 col-6 text-center d-flex justify-content-center align-items-center">
+                    <% if(userDetails1.isApproved) {%>
+                        <button type="button" class="btn btn-outline-primary montserrat-600 mx-1 w-50 action-btn" onclick="deleteAndReload('<%= userDetails1.userId %>')">Delete</button>
+                    <% } else {%>
+
+                    <button type="button" class="btn btn-primary montserrat-600 mx-1 w-50 action-btn" id="doneButton_<%= userDetails1.userId %>" onclick="approveUser('<%= userDetails1.userId %>', 'doneButton1')">Done</button>
+                    <button type="button" class="btn btn-outline-primary montserrat-600 mx-1 w-50 action-btn" onclick="deleteAndReload('<%= userDetails1.userId %>')">Delete</button>
+                    <% } %>
+                </td>
+            </tr>
+            <% } %>
+            <% if(userDetails2) {%>
+            <tr class="row m-0">
+                <td class="col-md-3 col-6 text-center d-flex justify-content-center align-items-center">
+                    <%= userDetails2.userId %>
+                </td>
+                <td class="col-md-3 col-6 text-center d-flex justify-content-center align-items-center">
+                    <%= userDetails2.name %>
+                </td>
+                <td class="col-md-3 col-6 text-center d-flex justify-content-center align-items-center">
+                    <img src="profiles/<%= userDetails2.imgSrc %>" class="profile-img">
+                </td>
+                <td class="col-md-3 col-6 text-center d-flex justify-content-center align-items-center">
+                    <% if(userDetails2.isApproved) {%>
+                    <button type="button" class="btn btn-outline-primary montserrat-600 mx-1 w-50 action-btn" onclick="deleteAndReload('<%= userDetails2.userId %>')">Delete</button>
+                    <% } else {%>
+                        <button type="button" class="btn btn-primary montserrat-600 mx-1 w-50 action-btn" id="doneButton_<%= userDetails2.userId %>" onclick="approveUser('<%= userDetails2.userId %>', 'dontButton2')">Done</button>
+                        <button type="button" class="btn btn-outline-primary montserrat-600 mx-1 w-50 action-btn" onclick="deleteAndReload('<%= userDetails2.userId %>')">Delete</button>
+                    <% } %>
+                </td>
+            </tr>
+            <% } %>
+        </table>
+    </div>
+    <script src="scripts/approve.js"></script>

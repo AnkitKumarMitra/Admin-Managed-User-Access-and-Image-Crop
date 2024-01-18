@@ -1,0 +1,108 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-end">
+                <% if (locals.status) { %>
+                    <button type="button" class="btn btn-outline-primary montserrat-600" data-toggle="modal"
+                            data-target="#viewModal">View
+                    </button>
+                <% } else { %>
+                    <button type="button" class="btn btn-outline-primary montserrat-600" disabled>View</button>
+                <% } %>
+            </div>
+        </div>
+    
+        <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-right" role="document">
+                <div class="modal-content">
+                    <div class="modal-header col-12 d-flex justify-content-end">
+                        <button type="button" class="btn btn-outline-primary montserrat-600" data-dismiss="modal"
+                                aria-label="Close">Back
+                        </button>
+                    </div>
+                    <div class=" text-center">
+                        <div id="cropperModalContainer text-center">
+                            <% if(locals.user) {%>
+                            <img src="/profiles/<%= user.imgSrc %>" alt="User Image">
+                            <% if(user.isApproved) {%>
+                                <h1 class="text-success m-2">Accepted</h1>
+                            <% } else { %>
+                                <h1 class="text-danger m-2">Not Accepted</h1>
+                            <% } }%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row my-5 justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10 col-12 p-4">
+                <form action="/upload" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="<%= id %>">
+                    <div class="form-group my-4">
+                        <div class="text-left montserrat-500">
+                            <label for="name">Name</label>
+                        </div>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+
+                    <div class="form-group my-4">
+                        <div class="text-left" montserrat-500>
+                            <label for="photo">Photo</label>
+                        </div>
+                        <div class="input-group">
+                            <div class="custom-file w-100">
+                                <input type="file" class="custom-file-input w-100" id="photo" name="photo"
+                                    onchange="initCropper();" aria-label="Choose File">
+                                <label class="custom-file-label w-100" for="photo" id="fileInputLabel"
+                                    style="cursor: pointer;">
+                                    <img id="fileInputLabelImage">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex justify-content-between px-2">
+                        <button type="submit"
+                            class="btn btn-primary btn-block col-md-5 col-12 mx-1 poppins-600">Upload</button>
+                        <button type="button" class="btn btn-primary btn-block col-md-5 col-12 mx-1 poppins-600"
+                            data-toggle="modal" data-target="#cropperModal">
+                            Crop Image
+                        </button>
+                    </div>
+
+
+                    <div class="modal fade" id="cropperModal" tabindex="-1" role="dialog"
+                        aria-labelledby="cropperModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="cropperModalLabel">Crop Image</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="cropperModalContainer">
+                                        <img id="cropperModalImage" src="" alt="Cropper Modal Image">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" onclick="crop()">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/cropperjs/dist/cropper.min.js"></script>
+    <script src="/scripts/crop.js"></script>

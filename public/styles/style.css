@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Montserrat:wght@500;600&family=Poppins:wght@600&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.poppins-600 {
+        font-family: 'Poppins';
+        font-weight: 600;
+}
+
+.montserrat-500 {
+    font-family: "Montserrat";
+    font-weight: 500;
+}
+
+.montserrat-600 {
+    font-family: "Montserrat";
+    font-weight: 600;
+}
+
+.form-heading {
+    color: #646464;
+}
+
+.right-border {
+    border-right: 1px solid #CDCDCD;
+  }
+
+.Frame-427319727 {
+    background-color: #03013B;
+    max-width: 100%;
+}
+
+.LOGO {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 4rem;
+    color: #0500FF;
+    z-index: 1;
+}
+
+.Group-48096339 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(89.25deg);
+}
+
+.Ellipse-773,
+.Ellipse-774,
+.Ellipse-775 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(89.25deg);
+    border-radius: 50%;
+}
+
+.Ellipse-773 {
+    width: 75%;
+    height: 75%;
+    background: linear-gradient(90deg, #050259 0%, rgba(5, 2, 89, 0) 100%);
+    box-shadow: 0 0 0 75px #03013B;
+}
+
+.Ellipse-774 {
+    width: 55%;
+    height: 55%;
+    background: linear-gradient(90deg, #050259 0%, rgba(5, 2, 89, 0) 100%);
+    box-shadow: 0 0 0 75px #03013B;
+}
+
+.Ellipse-775 {
+    width: 35%;
+    height: 35%;
+    background: linear-gradient(90deg, #050259 0%, rgba(5, 2, 89, 0) 100%);
+    box-shadow: 0 0 0 75px #03013B;
+}
+
+
+.view-user .form-group {
+    background-color: #EAECFF;
+    border-radius: 10px;
+}
+
+
+.profile-img {
+    width: 100px;
+}
+
+
+@media (max-width: 540px) {
+    .profile-img {
+        width: 50px;
+    }
+
+    .action-btn {
+        width: 12.12px;
+    }
+}

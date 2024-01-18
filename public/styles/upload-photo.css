@@ -1,0 +1,63 @@
+.custom-file-input {
+    display: none;
+}
+
+#fileInputLabel {
+    background-image: none;
+    border: 2px dashed #aaa;
+    border-radius: 10px;
+    height: 229px;
+    background-color: #CDCDCD;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#cropperContainer button {
+    margin-bottom: 10px;
+}
+
+#cropperModal .modal-footer button {
+    margin-bottom: 10px;
+}
+
+#fileInputLabel {
+    background-image: none;
+    border: 2px dashed #aaa;
+    border-radius: 10px;
+    height: 300px;
+    background-color: rgba(128, 128, 128, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#fileInputLabelImage {
+  height: 100%;  
+}
+
+.modal-dialog-right {
+    right: 0;
+    margin-left: auto;
+    margin-right: 0;
+    height: 100vh;
+    border-radius: 0px;
+}
+
+.modal-dialog-right {
+    right: 0;
+    margin: 0;
+    margin-left: auto;
+    border-radius: 0;
+    background-color: white;
+    overflow: hidden;
+}
+
+@media (min-width: 576px) {
+    .modal-dialog-right {
+        height: 100vh;
+    }
+}
